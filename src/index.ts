@@ -27,7 +27,135 @@ let friendsAge: number[] = [1,2,3,4,5,7]
 // tuple
 let person: [string,number,boolean] = ["Emon", 10, true]
 
-// Refere
+// Reference Type --> Object
+const user :{
+    readonly company: string,  //literal type
+    fullName: string, 
+    salary:number,
+    designation:string,
+    isAdmin?:boolean, // optional type
+} = {
+    company: "Octopi Digital",
+    fullName: "MD. Emon",
+    salary: 27000,
+    designation: "Tech Lead"
+}
+
+// function
+
+// traditional function
+function add(num1:number, num2:number):number {
+    return num1 + num2
+}
+const sum = add(2,3)
+
+// arrow function
+const addArrow = (num1:number, num2:number):number => num1+ num2
+
+const arr: number[] = [1,2,3,4,5];
+// call back function
+const square:number[] = arr.map((item:number):number => item * item)
+
+// method:
+const poorUser = {
+    name :"Emon",
+    balance : 0,
+    addBalance(bal:number):string {
+        return `New Balance = ${this.balance + bal}`
+    }
+}
 
 
- 
+// spreadOperator
+let bros1: string[] = ["bro1", "bro2", "bro3"];
+let bros2: string[] = ["bro4", "bro5"]
+let bro = [...bros1, bros2];
+
+let skills1:{
+    js: string,
+    ts: string,
+    next: string
+}={
+    js:"Emon",
+    ts: "Farid",
+    next: "Latif"
+}
+let skills2:{
+    redux:string,
+    cloud: string
+}={
+    redux:"mir",
+    cloud:"mizu"
+}
+
+let skills = {...skills1, ...skills2}
+
+// RestOperator
+const greetFriends = (friend1: string, friend2: string, ...friends: string[] ):string[] =>{
+    console.log(`hi: `, friend1 , " Hlw : ", friend2);
+    const rest:string[] = friends.map((item: string)=> `Hi : ${item}`)
+    return rest
+}
+
+greetFriends("emon","elina","sazzad","Mahmudul","Sabbir")
+
+// Distructuring
+
+// object
+const proUser ={
+    id: 123123,
+    name:{
+        fName: "kjnfe",
+        mName: "kjefgk",
+        lName: "fegwre"
+    },
+    org: "ODL"
+}
+
+const {id, name:{ mName: middleName}, org:organization} = proUser
+
+// array
+const proSkills: string[] = ["Redux", "TS", "Next.js", "PostGre SQL", "AWS", "Docker"]
+const [,typeScript,,,...cloud]  = proSkills
+
+// Type Alias:
+type Student={
+    id: number,
+    name: string,
+    age: Number,
+    address?: string
+}
+
+const student1:Student = {
+    id: 1,
+    name: "Emon",
+    age: 25
+}
+
+const student2:Student = {
+    id: 2,
+    name: "Ariyan",
+    age: 30,
+    address: "Dhaka"
+}
+
+type Add = (num1:number , num2:number) => number;
+
+const summation: Add = (num1, num2)=> num1 + num2 
+summation(10,20)
+
+
+// union
+type designation = "Frontend Developer" | "Backend Developer"
+
+
+// intersection
+type employee1 ={
+    designation : "Frontend Developer"
+    skills : string[]
+}
+type employee2 ={
+    designation : "Backend Developer"
+    skills : string[]
+}
+type employee = employee1 & employee2
