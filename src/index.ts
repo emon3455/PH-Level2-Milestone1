@@ -1,3 +1,4 @@
+{
 // simple/premitive data types
 
 // string
@@ -159,3 +160,45 @@ type employee2 ={
     skills : string[]
 }
 type employee = employee1 & employee2
+}
+
+{
+    // ternary operator:
+    const age = 10;
+    const adult: string = age >= 18 ? "Adult" : "Not Adult";
+    console.log({adult});
+
+
+    // nullish coalescing operator
+    // null / undefined --> ai duita hole use kora jay
+
+    const isAuthenticated = null;
+    const result1 = isAuthenticated ?? "Guest"
+    console.log({result1});
+
+    // optional chaining
+    type User = {
+        name:string,
+        address:{
+            city: string,
+            state: string,
+            zip: number,
+            permanentAddress?: string
+        }
+    }
+
+    const user: User ={
+        name: "Ariyan Emon",
+        address:{
+            city:"Dhaka",
+            state:"Mirpur",
+            zip: 1213,
+            // permanentAddress: "Dhaka Mohakhali"
+        }
+    }
+
+    const permanentAddress = user?.address?.permanentAddress
+    console.log({permanentAddress});
+    
+
+}
