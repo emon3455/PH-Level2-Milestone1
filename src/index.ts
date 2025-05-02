@@ -201,4 +201,34 @@ type employee = employee1 & employee2
     console.log({permanentAddress});
     
 
+    // nullable types
+    const searchName = (value: string | null)=>{
+        if(value){
+            console.log(`Searching for ${value}`);
+        }else{
+            console.log("Please provide a value to search");
+        }
+
+    }
+    searchName(null)
+
+    // unknown types
+    const getSpeed=(speed: unknown) =>{
+        if(typeof speed === "number"){
+            console.log(`Speed is ${(speed*1000)/3600} ms^-1`);
+        }else if(typeof speed === "string"){
+            const [value, unit] = speed.split(" ");
+            console.log(`Speed is ${(parseFloat(value)*1000)/3600} ms^-1`);
+        }else{
+            console.log("Invalid speed type");
+        }
+    }
+    getSpeed("59 km/h")
+
+    // Never Type
+    const throwError = (message: string):never=>{
+        throw new Error(message)
+    }
+    // throwError("This is a custom error message")
+
 }
