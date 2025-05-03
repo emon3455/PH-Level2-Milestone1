@@ -57,6 +57,73 @@
 
     const humanWithId: genericTuple<number, {name:string, age:number}> = [1234, {name:"Emon", age: 24}]
 
+    
+    // interface -> generic
+
+    interface Developer < T, X=null>{
+        name: string;
+        pc:{
+            brand: string;
+            model: string;
+            releaseYear: number;
+        };
+        smartWatch: T;
+        bike ?: X;
+    }
+
+    type EmilabWatch = {
+        brand: string;
+        model: string;
+        display: string;
+    }
+    type AppleWatch = {
+        brand: string;
+        model: string;
+        display: string;
+        hertAttackDetect: boolean;
+        sleepDetect: boolean;
+    }
+    type OgBike = {
+        brand: string;
+        color: string;
+        speed: string;
+    }
+
+    const poorDeveloper: Developer<EmilabWatch> = {
+        name: "Ariyan",
+        pc:{
+            brand: "Asus",
+            model: "YP-100",
+            releaseYear: 2000,
+        },
+        smartWatch:{
+            brand: "Hyolio",
+            model: "ap-100",
+            display: "Amulate",
+        }
+    }
+
+    const richDeveloper: Developer <AppleWatch, OgBike> = {
+        name: "Emon",
+        pc:{
+            brand: "Apple",
+            model: "Mac-Mini",
+            releaseYear: 2025,
+        },
+        smartWatch:{
+            brand: "Hyolio",
+            model: "ap-100",
+            display: "Amulate",
+            hertAttackDetect: true,
+            sleepDetect: true
+        },
+        bike:{
+            brand: "Yamaha",
+            color: "Black",
+            speed: "1200 CC"
+        }
+    }
+
 
     // 
 }
